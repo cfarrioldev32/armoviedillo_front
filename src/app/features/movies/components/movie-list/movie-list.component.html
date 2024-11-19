@@ -1,0 +1,29 @@
+<div class="movie-sections">
+  <div *ngIf="nowPlayingMovies.length > 0" class="movie-sections__section">
+    <h2 class="movie-sections__title">
+      Películas en Cartelera
+      <button class="movie-sections__refresh-button" mat-icon-button (click)="refreshNowPlaying()">
+        <mat-icon>refresh</mat-icon>
+      </button>
+    </h2>
+
+    <mat-spinner *ngIf="isLoadingNowPlaying" diameter="40"></mat-spinner>
+    <app-movie-carousel *ngIf="!isLoadingNowPlaying" [movies]="nowPlayingMovies"></app-movie-carousel>
+  </div>
+
+  <div *ngIf="popularMovies.length > 0" class="movie-sections__section">
+    <h2 class="movie-sections__title">
+      Películas Populares
+      <button class="movie-sections__refresh-button" mat-icon-button (click)="refreshPopular()">
+        <mat-icon>refresh</mat-icon>
+      </button>
+    </h2>
+
+    <mat-spinner *ngIf="isLoadingPopular" diameter="40"></mat-spinner>
+    <app-movie-carousel *ngIf="!isLoadingPopular" [movies]="popularMovies"></app-movie-carousel>
+  </div>
+
+  <div *ngIf="nowPlayingMovies.length === 0 && popularMovies.length === 0" class="movie-sections__no-results">
+    <p>No se encontraron películas</p>
+  </div>
+</div>

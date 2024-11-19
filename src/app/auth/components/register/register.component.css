@@ -1,0 +1,101 @@
+.register {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: inherit;
+  }
+  
+  .register__title {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .register__field {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .register__label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .register__input {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .register__input:focus {
+    outline: none;
+    border-color: #007bff;
+  }
+  
+  .register__error {
+    color: inherit;
+    margin-top: 4px;
+    font-size: 12px;
+  }
+  
+  .register__button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .register__button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  @media (max-width: 576px) {
+    .register {
+      padding: 15px;
+    }
+  
+    .register__input {
+      font-size: 12px;
+    }
+  
+    .register__button {
+      font-size: 14px;
+    }
+  }
+  
+  .register__redirect {
+    text-align: center;
+    margin-top: 15px;
+  }
+  
+  .register__redirect p {
+    margin: 0;
+    color: inherit;
+  }
+  
+  .register__redirect a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .register__redirect a:hover {
+    color: inherit;
+    text-decoration: underline;
+  }
+  
+  .register__redirect a:focus {
+    outline: none;
+    color: inherit;
+  }

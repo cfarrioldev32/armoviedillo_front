@@ -1,0 +1,86 @@
+<div class="register">
+    <form class="register__form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <h2 class="register__title">Registro</h2>
+  
+      <div class="register__field">
+        <label class="register__label" for="name">Nombre</label>
+        <input
+          class="register__input"
+          id="name"
+          type="text"
+          formControlName="name"
+          placeholder="Ingresa tu nombre"
+          required
+        />
+        <small class="register__error" *ngIf="registerForm.get('name')?.invalid && registerForm.get('name')?.touched">
+          El nombre es obligatorio.
+        </small>
+      </div>
+  
+      <div class="register__field">
+        <label class="register__label" for="surname">Apellidos</label>
+        <input
+          class="register__input"
+          id="surname"
+          type="text"
+          formControlName="surname"
+          placeholder="Ingresa tus apellidos"
+          required
+        />
+        <small class="register__error" *ngIf="registerForm.get('surname')?.invalid && registerForm.get('surname')?.touched">
+          Los apellidos son obligatorios.
+        </small>
+      </div>
+  
+      <div class="register__field">
+        <label class="register__label" for="email">Email</label>
+        <input
+          class="register__input"
+          id="email"
+          type="email"
+          formControlName="email"
+          placeholder="Ingresa tu email"
+          required
+        />
+        <small class="register__error" *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+          Ingresa un email válido.
+        </small>
+      </div>
+  
+      <div class="register__field">
+        <label class="register__label" for="password">Contraseña</label>
+        <input
+          class="register__input"
+          id="password"
+          type="password"
+          formControlName="password"
+          placeholder="Ingresa tu contraseña"
+          required
+        />
+        <small class="register__error" *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
+          La contraseña debe tener entre 8-12 caracteres, incluir una mayúscula, una minúscula, un número y un carácter especial.
+        </small>
+      </div>
+  
+      <div class="register__field">
+        <label class="register__label" for="birthday">Fecha de nacimiento</label>
+        <input
+          class="register__input"
+          id="birthday"
+          type="date"
+          formControlName="birthday"
+          required
+        />
+        <small class="register__error" *ngIf="registerForm.get('birthday')?.invalid && registerForm.get('birthday')?.touched">
+          La fecha de nacimiento es obligatoria.
+        </small>
+      </div>
+  
+      <button class="register__button" type="submit" [disabled]="registerForm.invalid">Registrarse</button>
+    </form>
+
+    <div class="register__redirect">
+      <p>¿Ya tienes cuenta? <a routerLink="/auth/login">Inicia sesión</a></p>
+    </div>
+  </div>
+  

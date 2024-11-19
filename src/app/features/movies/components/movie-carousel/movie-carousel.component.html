@@ -1,0 +1,26 @@
+<p-carousel 
+  *ngIf="movies.length > 0" 
+  [value]="movies" 
+  [numVisible]="10" 
+  [numScroll]="10" 
+  [circular]="true"
+  [responsiveOptions]="responsiveOptions">
+  
+  <ng-template let-movie pTemplate="item">
+    <div class="movie-card" (click)="showDialog(movie)">
+      <img 
+        [alt]="movie.title || 'Imagen no disponible'" 
+        class="movie-card__image"
+        [defaultImage]="defaultImage"
+        [lazyLoad]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" />
+    </div>
+  </ng-template>
+</p-carousel>
+
+
+<app-movie-details-modal 
+  [selectedMovie]="selectedMovie" 
+  [visible]="visible" 
+  [credits]="credits"
+  (close)="hideDialog()">
+</app-movie-details-modal>

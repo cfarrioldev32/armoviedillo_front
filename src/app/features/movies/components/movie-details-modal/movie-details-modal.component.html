@@ -1,0 +1,62 @@
+<p-dialog 
+  [modal]="true"
+  [(visible)]="visible" 
+  [style]="{ width: '45rem', 'height': '100%' }" 
+  [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }"
+  (onHide)="close.emit()">
+  
+  <ng-container *ngIf="selectedMovie">
+    <h3 class="movie-details__title">Detalles de la película</h3>
+    <div class="movie-details">
+      <div class="movie-details__left">
+        <img 
+          [src]="selectedMovie.poster_path ? 'https://image.tmdb.org/t/p/w500' + selectedMovie.poster_path : defaultImage"
+          [alt]="selectedMovie.title || 'Imagen no disponible'" 
+          class="movie-details__image"
+          [defaultImage]="defaultImage"
+          [lazyLoad]="'https://image.tmdb.org/t/p/w500' + selectedMovie.poster_path" />
+      </div>
+      <div class="movie-details__right">
+        <p><strong>Título:</strong> {{ selectedMovie.title }}</p>
+        <p><strong>Descripción:</strong> {{ selectedMovie.overview || 'Descripción no disponible' }}</p>
+
+        <p><strong>Calificación:</strong>  
+          <p-rating 
+            [(ngModel)]="selectedMovie.vote_average" 
+            [stars]="10" 
+            [readonly]="true" 
+            [cancel]="false" 
+            class="movie-details__rating">
+          </p-rating>
+        </p>
+
+        <p><strong>Fecha de estreno:</strong> {{ selectedMovie.release_date  || 'No disponible' | date:'dd/MM/yyyy'}}</p>
+      </div>
+    </div>
+    <div class="movie-credits" *ngIf="credits">
+      <h3 class="movie-credits__title">Créditos</h3>
+      <div class="movie-credits__list">
+        <div *ngFor="let castMember of paginatedCredits" class="movie-credits__cast-member">
+          <img 
+            [src]="castMember.profile_path ? 'https://image.tmdb.org/t/p/w500' + castMember.profile_path : defaultImage" 
+            alt="{{ castMember.name }}"
+            class="movie-credits__cast-member-img"
+          />
+          <div class="movie-credits__cast-member-name">
+            <p>{{ castMember.name }}</p>
+            <p>{{ castMember.character }}</p>
+          </div>
+        </div>
+      </div>
+
+      <mat-paginator 
+        [length]="credits?.cast?.length || 0"
+        [pageSize]="3" 
+        [pageSizeOptions]="[3]"
+        (page)="onPageChange($event)"
+        class="movie-credits__paginator">
+      </mat-paginator>
+    </div>
+  </ng-container>
+</p-dialog>
+

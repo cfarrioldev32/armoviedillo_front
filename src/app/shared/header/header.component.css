@@ -1,0 +1,9 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+mat-toolbar {
+    background-color: inherit;
+    color:inherit;
+    height: 80px; 
+    padding: 0 16px;
+  }

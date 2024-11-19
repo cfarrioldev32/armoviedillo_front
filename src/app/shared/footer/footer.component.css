@@ -1,0 +1,14 @@
+.footer {
+    background-color: inherit; 
+    color: inherit;
+    padding: 20px 0;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+  }
+  
+  .footer__copyright {
+    margin: 0;
+    font-size: 14px;
+    color: inherit;
+  }
+  

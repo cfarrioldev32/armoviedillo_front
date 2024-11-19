@@ -1,0 +1,41 @@
+<div class="login">
+  <form class="login__form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <h2 class="login__title">Iniciar Sesión</h2>
+
+    <div class="login__field">
+      <label class="login__label" for="email">Usuario</label>
+      <input
+        class="login__input"
+        id="email"
+        type="text"
+        formControlName="email"
+        placeholder="Ingresa tu usuario"
+        required
+      />
+      <small class="login__error" *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+        El usuario es obligatorio.
+      </small>
+    </div>
+
+    <div class="login__field">
+      <label class="login__label" for="password">Contraseña</label>
+      <input
+        class="login__input"
+        id="password"
+        type="password"
+        formControlName="password"
+        placeholder="Ingresa tu contraseña"
+        required
+      />
+      <small class="login__error" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+        La contraseña es obligatoria.
+      </small>
+    </div>
+
+    <button class="login__button" type="submit" [disabled]="loginForm.invalid">Iniciar Sesión</button>
+  </form>
+
+  <div class="login__redirect">
+    <p>¿No tienes cuenta? <a routerLink="/auth/register">Regístrate aquí</a></p>
+  </div>
+</div>

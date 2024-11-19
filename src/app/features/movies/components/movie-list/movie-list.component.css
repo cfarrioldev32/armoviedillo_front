@@ -1,0 +1,41 @@
+.movie-sections {
+  padding: 20px;
+  background-color: inherit;
+}
+
+.movie-sections__section {
+  margin-bottom: 40px;
+}
+
+.movie-sections__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  font-weight: 400;
+  color: inherit;
+}
+
+.movie-sections__refresh-button {
+  margin-left: 10px;
+}
+
+.movie-sections__no-results {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #888;
+}
+
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.movie-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
