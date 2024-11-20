@@ -2,6 +2,7 @@
   width: 95%;
   height: 95%;
   transition: transform 0.4s ease;
+  cursor: pointer;
 }
 
 .movie-card:hover {
