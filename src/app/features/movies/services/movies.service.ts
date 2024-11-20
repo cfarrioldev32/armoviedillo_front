@@ -17,8 +17,9 @@ getPopular(language: string = 'en-US', page: number = 1): Observable<any> {
   return this.http.get(url);
 }
 
-getNowPlaying(): Observable<any> {
-  return this.http.get(`https://api.themoviedb.org/3/movie/now-playing?api_key=9e48c1f75a9af148785c9deba8810bb2&language=en-US&page=1`);
+getPopular(language: string = 'en-US', page: number = 1): Observable<any> {
+  const url = `https://api.themoviedb.org/3/movie/now-playing?api_key=9e48c1f75a9af148785c9deba8810bb2&language=${language}&page=${page}`;
+  return this.http.get(url);
 }
 
 getMovieCredits(movieId: number): Observable<any> {
